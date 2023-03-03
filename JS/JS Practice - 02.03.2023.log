@@ -1,0 +1,264 @@
+log.js:15 (Glean.core.Upload.PingUploadManager) Ping 6ea0f9d0-c5f2-403e-a2d6-c2166fd89439 succesfully sent 200.
+log.js:15 (Glean.core.Upload.PingUploadManager) Ping 99ae9a11-2430-4409-b71e-b63f51f36626 succesfully sent 200.
+log.js:15 (Glean.core.Upload.PingUploadManager) Ping 8122a6a1-8fc9-4281-86ef-e3ffc9689641 succesfully sent 200.
+log.js:15 (Glean.core.Upload.PingUploadManager) Ping f942bbba-f8e5-48f1-a97f-7cc94d67b02b succesfully sent 200.
+log.js:15 (Glean.core.Upload.PingUploadManager) Ping 5473e10f-d825-4885-b623-d32b06b6f609 succesfully sent 200.
+​ 你好，世界！
+log.js:15 (Glean.core.Upload.PingUploadManager) Ping ea663a56-b796-4a84-b1e3-1c86cf71c1c6 succesfully sent 200.
+log.js:15 (Glean.core.Upload.PingUploadManager) Ping b394d9bd-4922-44ef-bc88-215233e7122f succesfully sent 200.
+log.js:15 (Glean.core.Upload.PingUploadManager) Ping 0b007a48-7ef9-465c-98ad-1023151c78b8 succesfully sent 200.
+1 == 1
+true
+NaN('1')
+VM274:1 Uncaught TypeError: NaN is not a function
+    at <anonymous>:1:1
+(anonymous) @ VM274:1
+NaN.toString
+ƒ toString() { [native code] }
+log.js:15 (Glean.core.Upload.PingUploadManager) Ping 61591816-bd8b-4b14-96bb-931908eb38c6 succesfully sent 200.
+obj.iDontExist
+VM382:1 Uncaught ReferenceError: obj is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM382:1
+obj = {}
+{}
+obj.iDontExist
+undefined
+' '
+' '
+Boo
+VM506:1 Uncaught ReferenceError: Boo is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM506:1
+Boolean('')
+false
+Sym
+VM549:1 Uncaught ReferenceError: Sym is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM549:1
+Symbol()
+Symbol()
+true
+true
+undefined
+undefined
+[1,2,3,4,5]
+(5) [1, 2, 3, 4, 5]
+a = [1,2,3,4,5]
+(5) [1, 2, 3, 4, 5]
+for(const i in a){
+}
+undefined
+for(const i in a){
+}
+undefined
+for(const i in a){ con
+}
+VM911:1 Uncaught ReferenceError: con is not defined
+    at <anonymous>:1:20
+(anonymous) @ VM911:1
+for(const i in a){ console.log
+}
+ƒ log() { [native code] }
+for(const i in a){ console.log(i)
+}
+VM962:1 0
+VM962:1 1
+VM962:1 2
+VM962:1 3
+VM962:1 4
+undefined
+for(const i for a){ console.log(i)
+}
+VM1005:1 Uncaught SyntaxError: Missing initializer in const declaration
+for(const i of a){ console.log(i)
+}
+VM1046:1 1
+VM1046:1 2
+VM1046:1 3
+VM1046:1 4
+VM1046:1 5
+undefined
+obj = {
+    a:21,
+    b:32,
+    c:43,
+    d:54
+}
+{a: 21, b: 32, c: 43, d: 54}
+for(const p in obj){
+    console.log(p)
+}
+VM1288:2 a
+VM1288:2 b
+VM1288:2 c
+VM1288:2 d
+undefined
+for(const p in obj){
+    console.log(p.value)
+}
+VM1364:2 undefined
+VM1364:2 undefined
+VM1364:2 undefined
+VM1364:2 undefined
+undefined
+for(const p in obj){
+    console.log(p.value())
+}
+VM1386:2 Uncaught TypeError: p.value is not a function
+    at <anonymous>:2:19
+(anonymous) @ VM1386:2
+for(const p in obj){
+    console.log(obj[p])
+}
+VM1467:2 21
+VM1467:2 32
+VM1467:2 43
+VM1467:2 54
+undefined
+for(const p in obj){
+    console.log(obj[p])
+}
+VM1476:2 21
+VM1476:2 32
+VM1476:2 43
+VM1476:2 54
+undefined
+for(const p of obj){
+    console.log(obj[p])
+}
+VM1501:1 Uncaught TypeError: obj is not iterable
+    at <anonymous>:1:16
+(anonymous) @ VM1501:1
+log.js:15 (Glean.core.Upload.PingUploadManager) Ping 4ce9ffe3-1d81-4898-b473-3288f1068549 succesfully sent 200.
+const obj = {
+  name: "Carrot",
+  for: "Max",
+  details: {
+    color: "orange",
+    size: 12,
+  },
+};
+undefined
+obj
+{name: 'Carrot', for: 'Max', details: {…}}details: {color: 'orange', size: 12}for: "Max"name: "Carrot"[[Prototype]]: Object
+obj['for']
+'Max'
+prompt('Hi, Your Name?')
+''
+prompt('Hi, Your Name?')
+'Bala'
+obj.details.color
+'orange'
+const me = {};
+const stillMe = me;
+me.x = 1;
+console.log(stillMe.x);
+VM1719:4 1
+undefined
+me
+{x: 1}
+stillMe
+{x: 1}
+stillMeItself = me
+{x: 1}
+stillMeItself.y = 4
+4
+me
+{x: 1, y: 4}
+stillMeItself
+{x: 1, y: 4}
+stillMe
+{x: 1, y: 4}
+log.js:15 (Glean.core.Upload.PingUploadManager) Ping e7d4e971-5115-4c64-addc-94ccf1f23849 succesfully sent 200.
+const avg = function (...args) {
+  let sum = 0;
+  for (const item of args) {
+    sum += item;
+  }
+  return sum / args.length;
+};
+undefined
+avg
+ƒ (...args) {
+  let sum = 0;
+  for (const item of args) {
+    sum += item;
+  }
+  return sum / args.length;
+}
+avg(1,2,3,4,5)
+3
+const iife = (function () {
+    console.log("Imd Invoked")
+})();
+VM2113:2 Imd Invoked
+undefined
+iife
+undefined
+iife()
+VM2135:1 Uncaught TypeError: iife is not a function
+    at <anonymous>:1:1
+(anonymous) @ VM2135:1
+iife
+undefined
+(function () {
+  // …
+})();
+undefined
+(function () {
+  console.log("Imd Invoked");
+})();
+VM2298:2 Imd Invoked
+undefined
+const add = (x) => (y) => x + y;
+undefined
+add(23)
+(y) => x + y
+add(23)(34)
+57
+const withAuthentication = (cls) =>
+  class extends cls {
+    authenticate() {
+      // …
+    }
+  };
+
+class Admin extends withAuthentication(Person) {
+  // …
+}
+VM2367:8 Uncaught ReferenceError: Person is not defined
+    at <anonymous>:8:40
+(anonymous) @ VM2367:8
+class People{}
+undefined
+const withAuthentication = (cls) =>
+  class extends cls {
+    authenticate() {
+      // …
+    }
+  };
+
+class Admin extends withAuthentication(Peopl) {
+  // …
+}
+VM2496:8 Uncaught ReferenceError: Peopl is not defined
+    at <anonymous>:8:40
+(anonymous) @ VM2496:8
+const withAuthentication = (cls) =>
+  class extends cls {
+    authenticate() {
+      // …
+    }
+  };
+
+class Admin extends withAuthentication(People) {
+  // …
+}
+undefined
+const admin = new Admin();
+undefined
+admin.a
+undefined
+admin.authenticate()
+undefined

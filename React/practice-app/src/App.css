@@ -1,0 +1,60 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body{
+  display: flex;
+  flex-direction: column;
+  height:100vh;
+}
+
+.navBar{
+  display: flex;
+  flex: 1;
+  background-color: blue;
+}
+
+.content{
+  display: flex;
+  flex: 8;
+  /* flex-wrap: wrap-reverse; */
+  /* flex-wrap: wrap; */
+  /* align-content: center; */
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.footer{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.heading {
+  display: flex;
+  flex :10;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  margin-left: 2.5%;
+}
+
+.floatingButton{
+  width: 60px;
+  height: 60px;
+  background-color: blue;
+  margin: 25px;
+  align-items: flex-end;
+  border-radius: 100%;
+}
+
+#plusIcon{
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 36px;
+}
