@@ -1,116 +1,74 @@
-// import logo from "./logo.svg";
-import "./App.css";
-import React, { useState, Component } from 'react';
+import React, { Component } from 'react';
+import Counters from './components/counters';
+import NavBar from './components/navBar';
 
-//NavBar - Functional Components
-function GetNavBar() {  
-  //creating react element by using createElement
-  const heading = React.createElement(
-    'h1',
-    {className:"heading"},
-    "My First App in React"
-  );
+class App extends Component {
+  state = { 
+    counters : [
+        {id: 1,count :4},
+        {id: 2,count :0},
+        {id: 3,count :0},
+        {id: 4,count :0},
+      ]
+  } 
+  render() { 
+    return (
+      <React.Fragment>
+        <NavBar 
+          noOfCounters={this.state.counters.length}
+        />
+        <Counters 
+          counters={this.state.counters}
+          onReset={this.handleReset}
+          onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
+          onDelete={this.handleDelete}
+        />
+      </React.Fragment>
+    );
+  }
 
-  return (
-    <div className="navBar">
-      {heading}
-    </div>
-  );
-}
 
-//Content - Functional Components
-function GetBodyContent(props) {
-  return (
-    <div className="content">
-      {props.user.name} pressed this button 
-      <br></br>
-      {props.user.noOfTimes}
-    </div>
-  );
-}
+  handleIncrement = (id) => {
+    let newCounters = this.state.counters.filter(
+        counter => {
+            if(counter.id === id) counter.count++;
+            return counter
+        }
+    )
 
-//Footer - Functional Components
-function GetFooter(props) {
-  return (
-    <div className="footer">
-      <div className="floatingButton" onClick={props.func}>
-        <i className="fa fa-plus" id="plusIcon"></i>
-      </div>
-    </div>
-  );
-}
+    this.setState(newCounters);
+  }
 
-// App That we are going to export
-// Here App is Functional Component
-function App(props) {
+  handleDecrement = (id) => {
+      let counters = this.state.counters.filter(
+          counter => {
+              if(counter.id === id) counter.count--;
+              return counter
+          }
+      )
 
-  //creating variables using useState 
-  let [noOfTimes , setTimes] = useState(0);
-  let [isValidInput, setToggle] = useState(true);
+      this.setState({counters});
+  }
 
-  let people = ["Adi", "Bala", "Chris", "David", "Evans"];
-  const person ={
-    name: people[noOfTimes%people.length],
-    noOfTimes: noOfTimes,
-    buttonPressed(e, times){
-      //Conditional Rendering component by changing the state
-      if(!times) setToggle(false);
-      else setToggle(true);
+  handleReset = () => {
+      let counters = this.state.counters.filter(
+          counter => {
+              counter.count = 0; 
+              return counter;
+          }
+      )
       
-      //Updating the value by useState variable
-      setTimes(noOfTimes+Number(times));
+      this.setState({counters});
+  }
 
-    }
-  };
-
-  return (
-    <div className="body">
-        <GetNavBar/>
-        <GetBodyContent user={person} />
-        <input id="count" type={"number"}></input>
-        {(isValidInput)?null:<p>Enter a Valid Input</p>}
-        <GetFooter func={(e) => person.buttonPressed(e, (document.getElementById('count'))?document.getElementById("count").value:1)}/>
-    </div>
-  );
+  handleDelete = id => {
+      let counters = this.state.counters.filter(
+          counter => (counter.id !== id)
+      )
+      
+      this.setState({counters});
+  }
 }
+ 
 export default App;
-
-// Here App is Class Component
-// let people = ["Adi", "Bala", "Chris", "David", "Evans"];
-// let times = 0;
-// const person ={
-//   name: people[times%people.length],
-//   noOfTimes: times,
-// };
-
-// class App extends Component {
-  
-//   constructor(props){
-//     super();
-//     this.state = person;
-//   }
-
-//   buttonPressed = () => {
-//     this.setState({
-//       name: people[(++times)%people.length],
-//       noOfTimes : times,
-//     });
-//   }
-
-  
-//   render() { 
-//     return (
-//       <div className="body">
-//           <GetNavBar/>
-//           <GetBodyContent user={this.state} />
-//           <div className="footer">
-//             <div className="floatingButton" onClick={this.buttonPressed}>
-//               <i className="fa fa-plus" id="plusIcon"></i>
-//             </div>
-//           </div>
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
