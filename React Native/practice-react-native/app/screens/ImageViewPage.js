@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Image, StatusBar, Platform } from "react-native";
 import colors from "../config/colors";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 function ImageViewPage(props) {
   return (
@@ -10,8 +11,18 @@ function ImageViewPage(props) {
         resizeMode="contain"
         source={require("../assets/image_section.jpg")}
       />
-      <View style={styles.deleteIcon}></View>
-      <View style={styles.closeIcon}></View>
+      <MaterialCommunityIcons
+        style={styles.closeIcon}
+        name="close"
+        size={35}
+        color="white"
+      />
+      <MaterialCommunityIcons
+        style={styles.deleteIcon}
+        name="delete-outline"
+        size={35}
+        color="white"
+      />
     </View>
   );
 }
@@ -20,23 +31,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.black,
-    marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   closeIcon: {
     position: "absolute",
-    backgroundColor: colors.secondary,
-    width: 50,
-    height: 50,
     top: 30,
-    right: 30,
+    left: 30,
   },
   deleteIcon: {
     position: "absolute",
-    backgroundColor: colors.primary,
-    width: 50,
-    height: 50,
     top: 30,
-    left: 30,
+    right: 30,
   },
   image: {
     width: "100%",
