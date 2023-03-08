@@ -2,10 +2,13 @@ import React from "react";
 import { View, StyleSheet, Text, Pressable } from "react-native";
 import colors from "../config/colors";
 
-function AppButton({ title, color = "primary", onPress }) {
+function AppButton({ title, color = "primary", onPress, width, height }) {
   return (
     <Pressable
-      style={[styles.button, { backgroundColor: colors[color] }]}
+      style={[
+        styles.button,
+        { backgroundColor: colors[color], width: width, height: height },
+      ]}
       onPress={onPress}
     >
       <View>
@@ -18,8 +21,7 @@ function AppButton({ title, color = "primary", onPress }) {
 const styles = StyleSheet.create({
   button: {
     backgroundColor: colors.primary,
-    height: "15%",
-    width: "40%",
+    width: "100%",
     borderRadius: 100,
     alignItems: "center",
     justifyContent: "center",
