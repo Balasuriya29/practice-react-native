@@ -1,20 +1,23 @@
 import React from "react";
-import { View, StyleSheet, Text, Pressable } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  Pressable,
+  TouchableNativeFeedback,
+} from "react-native";
 import colors from "../config/colors";
 
-function AppButton({ title, color = "primary", onPress, width, height }) {
+function AppButton({ title, color = "primary", onPress, style }) {
   return (
-    <Pressable
-      style={[
-        styles.button,
-        { backgroundColor: colors[color], width: width, height: height },
-      ]}
+    <TouchableNativeFeedback
+      background={TouchableNativeFeedback.Ripple("#fff", true)}
       onPress={onPress}
     >
-      <View>
+      <View style={[styles.button, { backgroundColor: colors[color] }, style]}>
         <Text style={styles.buttonTitle}> {title} </Text>
       </View>
-    </Pressable>
+    </TouchableNativeFeedback>
   );
 }
 

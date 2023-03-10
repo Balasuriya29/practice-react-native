@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 
 function AppIcon({
   name,
@@ -8,6 +8,7 @@ function AppIcon({
   backgroundColor = "black",
   iconColor = "white",
   style,
+  onPress,
 }) {
   return (
     <View
@@ -23,7 +24,12 @@ function AppIcon({
         style,
       ]}
     >
-      <MaterialCommunityIcons name={name} size={size * 0.5} color={iconColor} />
+      <AntDesign
+        onPress={onPress}
+        name={name}
+        size={size * 0.5}
+        color={iconColor}
+      />
     </View>
   );
 }
