@@ -93,7 +93,30 @@ export default function App() {
     },
   });
 
-  return <View style={styles.container}></View>;
+  return (
+    <View style={styles.container}>
+      <Animated.View
+        style={[
+          {
+            backgroundColor: "red",
+            width: "100%",
+            // bottom: !bottomNavigationShown ? "-89%" : "-25%",
+            bottom: "-89%",
+            height: "100%",
+            borderRadius: 50,
+            position: "absolute",
+          },
+          {
+            transform: [{ translateX: pan.x }, { translateY: pan.y }],
+          },
+        ]}
+        {...panResponder.panHandlers}
+      />
+      <Text style={{ position: "absolute", fontSize: 30, bottom: 0 }}>
+        Hello bottom: {!bottomNavigationShown ? "-89%" : "-25%"}
+      </Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
