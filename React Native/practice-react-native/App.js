@@ -1,99 +1,32 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
-import { Animated, useWindowDimensions } from "react-native";
-import { Text } from "react-native";
-import { Easing } from "react-native";
-import { PanResponder } from "react-native";
-import { Platform, StyleSheet, View, StatusBar } from "react-native";
+import {
+  StyleSheet,
+  View,
+  StatusBar,
+  Platform,
+  useWindowDimensions,
+} from "react-native";
+import Animated, {
+  useSharedValue,
+  withSpring,
+  useAnimatedStyle,
+  useAnimatedGestureHandler,
+} from "react-native-reanimated";
+import {
+  GestureHandlerRootView,
+  PanGestureHandler,
+} from "react-native-gesture-handler";
 
 import colors from "./app/config/colors";
+import AppSBNB from "./app/practice-animation/AppSBNB";
 
 export default function App() {
-  const { width, height } = useWindowDimensions();
-  const [bottomNavigationShown, setBottomNavigationShown] = useState(false);
-
-  const pan = new Animated.ValueXY();
-  const panResponder = PanResponder.create({
-    onMoveShouldSetPanResponder: (evt, gestureState) => {
-      // console.log("Starting");
-      // console.log(pan);
-      return true;
-    },
-    // onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
-    onPanResponderGrant: (evt, gestureState) => {
-      // console.log(gestureState.numberActiveTouches);
-      // console.log(pan);
-      pan.setOffset({
-        x: pan.x._value,
-        y: pan.y._value,
-      });
-      pan.setValue({ x: 0, y: 0 });
-    },
-    onPanResponderMove: Animated.event(
-      [
-        null,
-        {
-          // dx: pan.x,
-          dy: pan.y,
-        },
-      ],
-      { useNativeDriver: false }
-    ),
-    onPanResponderRelease: () => {
-      console.log(pan.y);
-      console.log(pan);
-      // console.log(height * 0.25);
-
-      //  1.
-      // if (bottomNavigationShown) {
-      //   let shown = false;
-      //   console.log("Shown");
-      //   if (pan.y._value >= height * 0.25) {
-      //     Animated.spring(
-      //       pan,
-      //       {
-      //         toValue: { x: 0, y: height * 0.69 },
-      //         useNativeDriver: false,
-      //       } // Back to zero
-      //     ).start();
-      //     shown = true;
-      //   } else {
-      //     Animated.spring(
-      //       pan,
-      //       { toValue: { x: 0, y: 0 }, useNativeDriver: false } // Back to zero
-      //     ).start();
-      //   }
-      //   if (shown) {
-      //     setBottomNavigationShown(!bottomNavigationShown);
-      //     console.log("Change Bottom 2");
-      //   } else {
-      //     console.log("Change Bottom 3");
-      //   }
-      //   pan.flattenOffset();
-      // }
-
-      // 2.
-      // else {
-      // console.log("Not Shown");
-      if (pan.y._value * -1 >= height / 2) {
-        Animated.spring(
-          pan,
-          {
-            toValue: { x: 0, y: height * -0.69 },
-            useNativeDriver: false,
-          } // Back to zero
-        ).start();
-      } else {
-        Animated.spring(
-          pan,
-          { toValue: { x: 0, y: 0 }, useNativeDriver: false } // Back to zero
-        ).start();
-      }
-      pan.flattenOffset();
-      // }
-    },
-  });
-
-  return <View style={styles.container}></View>;
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <AppSBNB />
+      </View>
+    </GestureHandlerRootView>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -101,7 +34,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.lightGray,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    // alignItems: "",
-    // justifyContent: "flex-end",
   },
 });
