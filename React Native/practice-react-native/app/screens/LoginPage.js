@@ -3,7 +3,8 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import AppButton from "../components/AppButton";
 import colors from "../config/colors";
 
-export default function LoginPage() {
+export default function LoginPage({ user }) {
+  console.log(user);
   return (
     <View style={styles.container}>
       <Image

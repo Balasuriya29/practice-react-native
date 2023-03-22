@@ -15,17 +15,20 @@ import {
   GestureHandlerRootView,
   PanGestureHandler,
 } from "react-native-gesture-handler";
+import { NavigationContainer } from "@react-navigation/native";
 
 import colors from "./app/config/colors";
-import AppSBNB from "./app/practice-animation/AppSBNB";
+import TabNav from "./app/practice-animation/TabNav";
 
 export default function App() {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <View style={styles.container}>
-        <AppSBNB />
-      </View>
-    </GestureHandlerRootView>
+    <NavigationContainer>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <View style={styles.container}>
+          <TabNav />
+        </View>
+      </GestureHandlerRootView>
+    </NavigationContainer>
   );
 }
 
