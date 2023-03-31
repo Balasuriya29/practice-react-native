@@ -19,13 +19,14 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import colors from "./app/config/colors";
 import TabNav from "./app/practice-animation/TabNav";
+import DTPM from "./app/screens/DateTimePicker";
 
 export default function App() {
   return (
     <NavigationContainer>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <View style={styles.container}>
-          <TabNav />
+          <DTPM />
         </View>
       </GestureHandlerRootView>
     </NavigationContainer>
